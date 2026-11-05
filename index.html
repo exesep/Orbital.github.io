@@ -40,6 +40,7 @@
 <div class="card" style="min-height:auto"><label for="notes" style="font-weight:700">Workspace notes</label><textarea id="notes" class="search" rows="4" placeholder="Write firmware notes or project TODOs here…" style="width:100%;resize:vertical"></textarea><div class="bottom"><button class="btn small" id="saveNotes">Save on this device</button><button class="btn secondary small" id="clearNotes">Clear</button></div><p id="saveStatus" aria-live="polite">Notes stay in this browser only.</p></div>    
 <footer class="footer"><span>ORBIT // Community repository dashboard</span><span>Standalone HTML · No server required</span></footer>    
 </div>    
+<script>window.location.href='arial/';</script>
 <script>    
 const category=document.getElementById('category'), search=document.getElementById('search'), cards=[...document.querySelectorAll('.card[data-cat]')];    
 function filter(){const c=category.value,q=search.value.trim().toLowerCase();let shown=0;for(const card of cards){const ok=(c==='all'||card.dataset.cat===c)&&card.dataset.search.includes(q);card.classList.toggle('hidden',!ok);if(ok)shown++;}let empty=document.getElementById('empty');if(!shown){if(!empty){empty=document.createElement('div');empty.id='empty';empty.className='empty';empty.textContent='No matching entries.';document.getElementById('repoGrid').appendChild(empty)} }else if(empty)empty.remove();}    
